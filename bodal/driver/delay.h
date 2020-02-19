@@ -10,6 +10,8 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_DELAY)
 
+#include <stdint.h>
+
 void delayInit();
 
 void delay(uint32_t ms);

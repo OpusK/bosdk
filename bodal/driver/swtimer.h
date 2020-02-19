@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_SWTIMER)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #ifndef ON
 #define ON 1
 #endif

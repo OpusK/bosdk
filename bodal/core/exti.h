@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_EXTI)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_EXTI_MAX_CHANNEL      HW_EXTI_MAX_CHANNEL
 
 void extiInit(void);

@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_UTIL_LOG)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #define BOSDK_LOG_CH   HW_LOG_CH
 
 bool logInit(void);

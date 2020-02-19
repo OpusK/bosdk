@@ -7,7 +7,7 @@
 
 #include <bosdk_config.h>
 #include "error_code.h"
-#include "cmdal/cmdal.h"
+#include "bodal/bodal.h"
 #include "util/util.h"
 
 #ifdef __cplusplus

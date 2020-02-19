@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_I2C)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define i2cRead  i2cReadBytes
 #define i2cWrite i2cWriteBytes
 

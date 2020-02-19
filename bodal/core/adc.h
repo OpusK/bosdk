@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_ADC)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_ADC_MAX_CHANNEL            HW_ADC_MAX_CHANNEL
 
 bool adcInit(void);

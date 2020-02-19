@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_RESET)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 bool resetInit(void);
 uint8_t resetGetStatus(void);
 void resetRunWdgReset(void);

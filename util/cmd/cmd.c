@@ -140,7 +140,7 @@ bool cmdReceivePacket(cmd_t *p_cmd)
       p_cmd->rx_packet.check_sum ^= ch;
       p_cmd->state                = CMD_STATE_WAIT_LENGTH_H;
 
-			if (p_cmd->rx_packet.length <= CMD_MAX_DATA_LENGTH)
+			if (p_cmd->rx_packet.length <= BOSDK_CMD_MAX_DATA_LENGTH)
 			{
 				if (p_cmd->rx_packet.length > 0)
 				{
@@ -238,7 +238,7 @@ void cmdSendResp(cmd_t *p_cmd, uint16_t err_code, uint8_t *p_data, uint32_t leng
   data = (p_cmd->tx_packet.length>>8) & 0xFF;
   cmdPutch(ch, data); check_sum ^= data;
 
-	for( i=0; i<p_cmd->tx_packet.length && i<CMD_MAX_DATA_LENGTH; i++ )
+	for( i=0; i<p_cmd->tx_packet.length && i<BOSDK_CMD_MAX_DATA_LENGTH; i++ )
 	{
 	  cmdPutch(ch, p_cmd->tx_packet.data[i]);
 		check_sum ^= p_cmd->tx_packet.data[i];
@@ -296,7 +296,7 @@ void cmdSendCmd(cmd_t *p_cmd, uint8_t cmd, uint8_t *p_data, uint32_t length)
   cmdPutch(ch, data); check_sum ^= data;
 
 
-  for( i=0; i<p_cmd->tx_packet.length && i<CMD_MAX_DATA_LENGTH; i++ )
+  for( i=0; i<p_cmd->tx_packet.length && i<BOSDK_CMD_MAX_DATA_LENGTH; i++ )
   {
     cmdPutch(ch, p_cmd->tx_packet.data[i]);
     check_sum ^= p_cmd->tx_packet.data[i];

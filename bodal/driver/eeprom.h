@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_EEPROM)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 bool eepromInit();
 
 uint8_t  eepromReadByte(uint32_t addr);

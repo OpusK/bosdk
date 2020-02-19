@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_MILLIS)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 bool millisInit(void);
 uint32_t millis(void);
 

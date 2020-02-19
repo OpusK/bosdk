@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_SPI)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_SPI_MAX_CH            HW_SPI_MAX_CH
 
 bool      spiInit(void);

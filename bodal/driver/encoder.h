@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_ENCODER)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 bool     encoderInit(void);
 
 uint16_t encoderReadValue(uint8_t ch);

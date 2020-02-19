@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_CAN)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_CAN_MAX_CHANNEL       HW_CAN_MAX_CHANNEL
 #define BODAL_CAN_MSG_RX_BUF_MAX    HW_CAN_MSG_RX_BUF_MAX
 #define BODAL_CAN_DATA_RX_BUF_MAX   HW_CAN_DATA_RX_BUF_MAX

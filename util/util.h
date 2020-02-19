@@ -42,6 +42,13 @@
 #define sq(x) ((x)*(x))
 #endif
 
+#ifndef HIGH
+#define HIGH 1
+#endif
+
+#ifndef LOW
+#define LOW 0
+#endif
 
 #include <stdint.h>
 #include <stdbool.h>

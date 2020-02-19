@@ -10,7 +10,8 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_BUZZER)
 
-#define BODAL_BUZZER_TIMER    HW_BUZZER_TIMER
+#include <stdint.h>
+#include <stdbool.h>
 
 bool buzzerInit(void);
 

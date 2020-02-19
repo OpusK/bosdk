@@ -12,9 +12,9 @@ bool qbufferInit(void)
   return true;
 }
 
-err_code_t qbufferCreate(qbuffer_node_t *p_node, uint32_t length)
+bosdk_err_t qbufferCreate(qbuffer_node_t *p_node, uint32_t length)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
 
 
   p_node->ptr_in  = 0;
@@ -42,9 +42,9 @@ uint32_t qbufferAvailable(qbuffer_node_t *p_node)
   return length;
 }
 
-err_code_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
+bosdk_err_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t index;
   uint32_t next_index;
   uint32_t i;
@@ -77,14 +77,14 @@ err_code_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length
   return err_code;
 }
 
-err_code_t qbufferWriteByte(qbuffer_node_t *p_node, uint8_t data)
+bosdk_err_t qbufferWriteByte(qbuffer_node_t *p_node, uint8_t data)
 {
   return qbufferWrite(p_node, &data, 1);
 }
 
-err_code_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
+bosdk_err_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t index;
   uint32_t next_index;
   uint32_t i;
@@ -118,7 +118,7 @@ err_code_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
   return err_code;
 }
 
-err_code_t qbufferReadByte(qbuffer_node_t *p_node, uint8_t *p_data)
+bosdk_err_t qbufferReadByte(qbuffer_node_t *p_node, uint8_t *p_data)
 {
   return qbufferRead(p_node, p_data, 1);
 

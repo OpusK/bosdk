@@ -1,5 +1,5 @@
-#ifndef BOSDK_CMDAL_H_
-#define BOSDK_CMDAL_H_
+#ifndef BOSDK_BODAL_H_
+#define BOSDK_BODAL_H_
 
 
 #ifdef __cplusplus
@@ -25,7 +25,6 @@
 #include "driver/button.h"
 #include "driver/buzzer.h"
 #include "driver/delay.h"
-#include "driver/dxlport.h"
 #include "driver/eeprom.h"
 #include "driver/encoder.h"
 #include "driver/led.h"
@@ -38,4 +37,4 @@
 #endif
 
 
-#endif /* BOSDK_CMDAL_H_ */
+#endif /* BOSDK_BODAL_H_ */

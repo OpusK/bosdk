@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_UTIL_CMDIF)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #define BOSDK_CMDIF_LIST_MAX            HW_CMDIF_LIST_MAX
 #define BOSDK_CMDIF_CMD_STR_MAX         HW_CMDIF_CMD_STR_MAX
 #define BOSDK_CMDIF_CMD_BUF_LENGTH      HW_CMDIF_CMD_BUF_LENGTH

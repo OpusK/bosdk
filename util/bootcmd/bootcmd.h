@@ -10,6 +10,8 @@
 
 #if(BOSDK_ENABLE_UTIL_BOOTCMD)
 
+#include <stdint.h>
+#include <stdbool.h>
 #include "../../error_code.h"
 
 #define FW_TAG_TYPE_A 0
@@ -25,7 +27,7 @@ typedef struct
 
 void bootCmdInit(void);
 void bootCmdProcess(cmd_t *p_cmd);
-err_code_t checkFw(uint32_t type, uint32_t address);
+bosdk_err_t checkFw(uint32_t type, uint32_t address);
 
 
 #endif /* BOSDK_ENABLE_UTIL_BOOTCMD */

@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_VCP)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 bool     vcpInit(void);
 bool     vcpFlush(void);
 uint32_t vcpAvailable(void);

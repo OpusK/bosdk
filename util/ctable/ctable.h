@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_UTIL_CTABLE)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #define _ATTR_EEPROM        (1<<1)
 #define _ATTR_RAM           (1<<2)
 #define _ATTR_VIR           (1<<3)

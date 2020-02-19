@@ -10,6 +10,11 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_TIMER)
 
+#include <stdbool.h>
+#include <stdint.h>
+
+#define BODAL_TIMER_MAX_CH            HW_TIMER_MAX_CH
+
 bool timerInit(void);
 
 void timerStop(uint8_t channel);

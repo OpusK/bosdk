@@ -31,7 +31,7 @@ void bootCmdInit(void)
 {
 }
 
-err_code_t checkFw(uint32_t type, uint32_t address)
+bosdk_err_t checkFw(uint32_t type, uint32_t address)
 {
   fw_tag_type_a_t *p_tag;
   uint8_t *p_data;
@@ -99,7 +99,7 @@ void bootCmdReadBoardName(cmd_t *p_cmd)
 
 void bootCmdFlashErase(cmd_t *p_cmd)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t addr_begin;
   uint32_t addr_end;
   uint32_t length;
@@ -131,7 +131,7 @@ void bootCmdFlashErase(cmd_t *p_cmd)
 
 void bootCmdFlashWrite(cmd_t *p_cmd)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t addr_begin;
   uint32_t addr_end;
   uint32_t length;
@@ -177,7 +177,7 @@ void bootCmdFlashWrite(cmd_t *p_cmd)
 
 void bootCmdFlashRead(cmd_t *p_cmd)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t addr_begin;
   uint32_t length;
   uint32_t i;
@@ -211,7 +211,7 @@ void bootCmdFlashRead(cmd_t *p_cmd)
 
 void bootCmdFlashVerify(cmd_t *p_cmd)
 {
-  err_code_t err_code = OK;
+  bosdk_err_t err_code = OK;
   uint32_t addr_begin;
   uint32_t length;
   uint16_t rx_crc;
@@ -241,7 +241,7 @@ void bootCmdJumpToAddress(cmd_t *p_cmd)
 {
   uint32_t address = convertU8arrayToU32(&p_cmd->rx_packet.data[0]);
 
-  err_code_t err = checkFw(FW_TAG_TYPE_A, address);
+  bosdk_err_t err = checkFw(FW_TAG_TYPE_A, address);
 
   cmdSendResp(p_cmd, err, NULL, 0);
   if(err == OK)

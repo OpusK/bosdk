@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_MICROS)
 
+#include <stdint.h>
+#include <stdbool.h>
+
 bool microsInit(void);
 uint32_t micros(void);
 

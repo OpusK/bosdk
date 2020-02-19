@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_PWM)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_PWM_MAX_CH            HW_PWM_MAX_CH
 
 bool pwmInit(void);

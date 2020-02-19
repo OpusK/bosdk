@@ -10,6 +10,9 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_DAC)
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #define BODAL_DAC_MAX_CHANNEL      HW_DAC_MAX_CHANNEL
 
 void dacInit(void);

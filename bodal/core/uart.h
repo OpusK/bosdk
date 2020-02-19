@@ -10,10 +10,16 @@
 
 #if(BOSDK_ENABLE_BODAL_CORE_UART)
 
+#include <stdbool.h>
+#include <stdint.h>
+#include "../../error_code.h"
+
+#define BODAL_UART_MAX_CH            HW_UART_MAX_CH
+
 bool uartInit(void);
 
-err_code_t  uartOpen(uint8_t channel, uint32_t baud);
-err_code_t  uartClose(uint8_t channel);
+bosdk_err_t  uartOpen(uint8_t channel, uint32_t baud);
+bosdk_err_t  uartClose(uint8_t channel);
 uint32_t    uartAvailable(uint8_t channel);
 void        uartWaitForEnable(uint8_t channel, uint32_t timeout);
 void        uartFlush(uint8_t channel);

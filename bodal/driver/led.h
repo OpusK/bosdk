@@ -9,6 +9,7 @@
 #include <bosdk_config.h>
 
 #if(BOSDK_ENABLE_BODAL_DRIVER_LED)
+
 #include <stdint.h>
 #include <stdbool.h>
 
