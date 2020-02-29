@@ -18,8 +18,8 @@
 
 bool uartInit(void);
 
-bosdk_err_t  uartOpen(uint8_t channel, uint32_t baud);
-bosdk_err_t  uartClose(uint8_t channel);
+bosdk_err_t uartOpen(uint8_t channel, uint32_t baud);
+bosdk_err_t uartClose(uint8_t channel);
 uint32_t    uartAvailable(uint8_t channel);
 void        uartWaitForEnable(uint8_t channel, uint32_t timeout);
 void        uartFlush(uint8_t channel);
