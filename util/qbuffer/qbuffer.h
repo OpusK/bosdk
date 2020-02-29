@@ -20,18 +20,16 @@ typedef struct
   uint32_t   ptr_in;
   uint32_t   ptr_out;
   uint32_t   length;
-  uint8_t   *p_buf;
-} qbuffer_node_t;
+  uint8_t    *p_buf;
+} qbuffer_t;
 
 
-
-bool qbufferInit(void);
-bosdk_err_t qbufferCreate(qbuffer_node_t *p_node, uint32_t length);
-uint32_t   qbufferAvailable(qbuffer_node_t *p_node);
-bosdk_err_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length);
-bosdk_err_t qbufferWriteByte(qbuffer_node_t *p_node, uint8_t data);
-bosdk_err_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length);
-bosdk_err_t qbufferReadByte(qbuffer_node_t *p_node, uint8_t *p_data);
+bosdk_err_t qbufferCreate(qbuffer_t *p_node, uint8_t *p_buf, uint32_t length);
+uint32_t    qbufferAvailable(qbuffer_t *p_node);
+bosdk_err_t qbufferWrite(qbuffer_t *p_node, uint8_t *p_data, uint32_t length);
+bosdk_err_t qbufferWriteByte(qbuffer_t *p_node, uint8_t data);
+bosdk_err_t qbufferRead(qbuffer_t *p_node, uint8_t *p_data, uint32_t length);
+void        qbufferFlush(qbuffer_t *p_node);
 
 #endif /* BOSDK_ENABLE_UTIL_QBUFFER */
 

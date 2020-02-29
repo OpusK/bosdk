@@ -5,51 +5,37 @@
 #include <stdlib.h>
 
 
-
-bool qbufferInit(void)
+bosdk_err_t qbufferCreate(qbuffer_t *p_node, uint8_t *p_buf, uint32_t length)
 {
-
-  return true;
-}
-
-bosdk_err_t qbufferCreate(qbuffer_node_t *p_node, uint32_t length)
-{
-  bosdk_err_t err_code = OK;
-
+  bosdk_err_t err_code = BOSDK_OK;
 
   p_node->ptr_in  = 0;
   p_node->ptr_out = 0;
   p_node->length  = length;
-  p_node->p_buf   = (uint8_t *)malloc(length);
+  p_node->p_buf   = p_buf;
 
   if (p_node->p_buf == NULL)
   {
     p_node->length = 0;
-    err_code       = ERR_MEMORY;
+    err_code = BOSDK_ERR_MEMORY;
   }
-
 
   return err_code;
 }
 
-uint32_t qbufferAvailable(qbuffer_node_t *p_node)
+uint32_t qbufferAvailable(qbuffer_t *p_node)
 {
-  uint32_t length;
-
-
-  length = (p_node->length + p_node->ptr_in - p_node->ptr_out) % p_node->length;
-
-  return length;
+  return (p_node->length + p_node->ptr_in - p_node->ptr_out) % p_node->length;
 }
 
-bosdk_err_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
+bosdk_err_t qbufferWrite(qbuffer_t *p_node, uint8_t *p_data, uint32_t length)
 {
-  bosdk_err_t err_code = OK;
+  bosdk_err_t err_code = BOSDK_OK;
   uint32_t index;
   uint32_t next_index;
   uint32_t i;
 
-  if (p_node->p_buf == NULL) return ERR_NULL;
+  if (p_node->p_buf == NULL) return BOSDK_ERR_NULL;
 
 
   for (i=0; i<length; i++)
@@ -69,7 +55,7 @@ bosdk_err_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t lengt
     }
     else
     {
-      err_code = ERR_FULL;
+      err_code = BOSDK_ERR_FULL;
       break;
     }
   }
@@ -77,20 +63,19 @@ bosdk_err_t qbufferWrite(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t lengt
   return err_code;
 }
 
-bosdk_err_t qbufferWriteByte(qbuffer_node_t *p_node, uint8_t data)
+bosdk_err_t qbufferWriteByte(qbuffer_t *p_node, uint8_t data)
 {
   return qbufferWrite(p_node, &data, 1);
 }
 
-bosdk_err_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length)
+bosdk_err_t qbufferRead(qbuffer_t *p_node, uint8_t *p_data, uint32_t length)
 {
-  bosdk_err_t err_code = OK;
+  bosdk_err_t err_code = BOSDK_OK;
   uint32_t index;
   uint32_t next_index;
   uint32_t i;
 
-  if (p_node->p_buf == NULL) return ERR_NULL;
-
+  if (p_node->p_buf == NULL) return BOSDK_ERR_NULL;
 
   for (i=0; i<length; i++)
   {
@@ -109,7 +94,7 @@ bosdk_err_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length
     }
     else
     {
-      err_code = ERR_EMPTY;
+      err_code = BOSDK_ERR_EMPTY;
       break;
     }
   }
@@ -118,10 +103,11 @@ bosdk_err_t qbufferRead(qbuffer_node_t *p_node, uint8_t *p_data, uint32_t length
   return err_code;
 }
 
-bosdk_err_t qbufferReadByte(qbuffer_node_t *p_node, uint8_t *p_data)
+void qbufferFlush(qbuffer_t *p_node)
 {
-  return qbufferRead(p_node, p_data, 1);
-
+  p_node->ptr_in  = 0;
+  p_node->ptr_out = 0;
 }
+
 
 #endif /* BOSDK_ENABLE_UTIL_QBUFFER */
